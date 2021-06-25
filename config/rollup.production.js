@@ -6,9 +6,6 @@ import html from "@rollup/plugin-html"
 
 import appInfo from "./app-info.js"
 
-const branch = process.env.BRANCH || "v0.0.0"
-const version = branch.split("/").pop()
-
 const template = (options) => `<!doctype html>
 <html>
     <head>
@@ -27,7 +24,7 @@ const template = (options) => `<!doctype html>
 export default {
     input: "./src/main.js",
     output: {
-        file: `./output/app-${version}.js`,
+        file: `./output/app.${Date.now()}.min.js`,
         format: "iife",
     },
     plugins: [
